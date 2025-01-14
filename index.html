@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WB Distributor Landing Page Mockup</title>
+
+  <!-- LOAD FONT AWESOME FOR ICONS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-CwToxZpMhZvo6brZyfSD6WhhQ9NDeuHTwryrs9HRBAllRsJS2zW9Uv8rvj0z9YteOBGl/tBUpPdK7SbkxBlpSA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    /* RESET & BASIC STYLING */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    body {
+      background: #fff;
+      color: #333;
+      line-height: 1.4;
+      font-family: Arial, sans-serif;
+    }
+    a {
+      color: #8db946; /* WB green for links */
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1, h2, h3, h4, h5 {
+      margin-bottom: 0.75rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* COLOR VARIABLES */
+    :root {
+      --wb-green: #8db946;
+      --wb-blue-grey: #6b8291; 
+      --wb-black: #333333;
+      --wb-white: #ffffff;
+      --wb-dark-grey: #2f2f2f;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--wb-black);
+      color: var(--wb-white);
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 140px;
+      margin-right: 2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    nav li {
+      margin-left: 1rem;
+      position: relative;
+    }
+    nav li a {
+      padding: 0.5rem 0.75rem;
+      color: var(--wb-white);
+      transition: 0.3s ease;
+    }
+    nav li a:hover {
+      background: var(--wb-green);
+      color: var(--wb-black);
+      border-radius: 4px;
+    }
+
+    /* DEALER LOGIN BUTTON */
+    .nav-right button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background: var(--wb-green);
+      border: none;
+      border-radius: 4px;
+      color: var(--wb-black);
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .nav-right button:hover {
+      background: #729633;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('wbdc-hero.png') center/cover no-repeat;
+      color: var(--wb-white);
+      text-align: center;
+      padding: 5rem 0;
+      position: relative;
+    }
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.693);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto;
+      line-height: 1.5;
+    }
+    .hero .cta-btn {
+      margin-top: 2rem;
+      background: #c3cc00;
+      color: var(--wb-black);
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .hero .cta-btn:hover {
+      background: #729633;
+    }
+
+    /* ABOUT / DISTRIBUTOR INFO */
+    .about-section {
+      background: var(--wb-white);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .about-section h2 {
+      margin-bottom: 1rem;
+      color: var(--wb-black);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .about-item {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 4px;
+    }
+
+    /* DISTRIBUTION CENTERS */
+    .distribution-centers {
+      background: #0099dc;
+      color: var(--wb-white);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .distribution-centers h2 {
+      margin-bottom: 1rem;
+    }
+    .dc-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 2rem auto 0;
+    }
+    .dc-content img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .dc-text {
+      text-align: left;
+    }
+
+    /* DEALER LOCATOR SECTION (DARKER BACKGROUND) */
+    .dealer-locator {
+      background: var(--wb-dark-grey);
+      color: var(--wb-white);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .dealer-locator .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .locator-info {
+      max-width: 600px;
+    }
+    .locator-box-condensed {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .locator-box-condensed input {
+      width: 220px;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .locator-box-condensed button {
+      background: #c3cc00;
+      color: var(--wb-black);
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .locator-box-condensed button:hover {
+      background: #729633;
+    }
+
+    /* CATALOG / FLIPBOOK SECTION */
+    .catalog-section {
+      background: #f0f0f0;
+      padding: 2rem 0 4rem;
+      text-align: center;
+    }
+    .catalog-section h2 {
+      margin-bottom: 1rem;
+      color: var(--wb-black);
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 2rem auto 0;
+      max-width: 1000px;
+    }
+    .catalog-item {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* BRAND CAROUSEL */
+    .brand-carousel {
+      background: var(--wb-white);
+      padding: 3rem 0;
+    }
+    .brand-carousel h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--wb-black);
+    }
+    .carousel-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem;
+      scroll-behavior: smooth;
+    }
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 160px;
+      text-align: center;
+    }
+    .carousel-item img {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      background: #f1f1f1;
+    }
+
+    /* PARTNER WITH WB DISTRIBUTING SECTION */
+    .partner-section {
+      background: #fafafa;
+      padding: 3rem 0;
+    }
+    .partner-section .container {
+      max-width: 1000px;
+    }
+    .partner-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--wb-black);
+    }
+    .partner-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .partner-box {
+      background: #fff;
+      border-radius: 4px;
+      padding: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .partner-box:hover {
+      transform: translateY(-4px);
+    }
+    .partner-box i {
+      font-size: 2rem;
+      color: var(--wb-green);
+      margin-bottom: 1rem;
+    }
+    .partner-box h3 {
+      margin-bottom: 0.5rem;
+      color: var(--wb-black);
+    }
+
+    /* OEM PARTNERSHIPS SECTION */
+    .oem-section {
+      background: #0099dc;
+      color: var(--wb-white);
+      padding: 3rem 0;
+    }
+    .oem-section .container {
+      max-width: 900px;
+    }
+    .oem-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .oem-section .oem-text {
+      background: rgba(255,255,255,0.1);
+      padding: 2rem;
+      border-radius: 4px;
+      line-height: 1.6;
+    }
+    .oem-section .oem-text h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--wb-white);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    .oem-section .cta-btn {
+      margin-top: 1.5rem;
+      background: #fff;
+      color: #044c9f;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .oem-section .cta-btn:hover {
+      background: #e0e0e0;
+    }
+
+    /* BECOME A DEALER SECTION */
+    .become-dealer {
+      background: #c3cc00;
+      color: var(--wb-black);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .become-dealer h2 {
+      margin-bottom: 1rem;
+    }
+    .become-dealer .dealer-btn {
+      background: var(--wb-black);
+      color: var(--wb-white);
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .become-dealer .dealer-btn:hover {
+      background: #555;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #333;
+      color: #ccc;
+      padding: 3rem 0;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+      margin-bottom: 1rem;
+    }
+    .footer-col h3 {
+      margin-bottom: 0.75rem;
+      color: var(--wb-white);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    .footer-col ul li a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .social-icons a {
+      color: #ccc;
+      font-size: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .social-icons a:hover {
+      background: #fff;
+      color: #333;
+      border: 1px solid #fff;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* DEALER LOGIN MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal {
+      background: #fff;
+      width: 400px;
+      max-width: 90%;
+      padding: 2rem;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.5rem; right: 0.5rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .modal h3 {
+      margin-bottom: 1rem;
+    }
+    .modal label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .modal input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .modal button {
+      display: inline-block;
+      background: var(--wb-green);
+      color: var(--wb-black);
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .modal button:hover {
+      background: #729633;
+    }
+
+    /* CAROUSEL SCROLLBAR (optional) */
+    .carousel-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .carousel-container::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DEALER LOGIN MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <h3>Dealer Login</h3>
+      <form>
+        <label for="dealer-id">Dealer ID</label>
+        <input type="text" id="dealer-id" placeholder="Enter your dealer ID...">
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password...">
+
+        <button type="button" onclick="alert('Login submitted (demo).')">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- END DEALER LOGIN MODAL -->
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="nav-left">
+          <!-- Placeholder Logo -->
+          <div class="logo">
+            <img src="WBDC-logo.png" alt="WB Company Logo">
+          </div>
+          <!-- Nav -->
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#catalogs">Catalogs</a></li>
+              <li><a href="#brands">Brands</a></li>
+              <li><a href="linecard.html" target="_blank">Line Card</a></li>
+              <li><a href="supplier.html" target="_blank">Become a Supplier</a></li>
+              <li>
+                <a href="javascript:void(0)">Dealers</a>
+                <!-- Sample dropdown for dealers, if needed -->
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="nav-right">
+          <!-- Dealer Login Button -->
+          <button id="openModalBtn">
+            <i class="fas fa-user-lock"></i> Dealer Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END HEADER -->
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Your Trusted Distribution Partner</h1>
+      <p>Experience fast shipping, great service, and unbeatable product selection.  
+         Become a dealer and harness our powerful online ordering system!</p>
+      <button class="cta-btn" onclick="window.location='#becomedealer'">
+        Become a Dealer
+      </button>
+    </div>
+  </section>
+  <!-- END HERO SECTION -->
+
+  <!-- ABOUT / DISTRIBUTOR INFO -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <p>We are a leading distributor in the agricultural and power equipment industry, offering an extensive selection of 
+         products, unparalleled customer support, and a robust online ordering system exclusively for dealers.</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <h3>850+ Team Members</h3>
+          <p>Professional and dedicated employees on standby to serve your business needs.</p>
+        </div>
+        <div class="about-item">
+          <h3>150,000+ Products</h3>
+          <p>Spanning utility vehicle, tractor, turf, and construction equipment markets.</p>
+        </div>
+        <div class="about-item">
+          <h3>10,000+ Dealers</h3>
+          <p>A global network of partners trust our reliability and expertise every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END ABOUT SECTION -->
+
+  <!-- DISTRIBUTION CENTERS -->
+  <section class="distribution-centers" id="dist-centers">
+    <div class="container">
+      <h2>Our Distribution Centers</h2>
+      <div class="dc-content">
+        <img src="wbdc-map.png" alt="Map of WB Distribution Centers">
+        <div class="dc-text">
+          <h3>Serving the Country from Phoenix & Atlanta</h3>
+          <p>We leverage strategic warehouse locations to ensure swift delivery and exceptional coverage coast-to-coast. 
+             Our headquarters is based in Atlanta, GA, with a dedicated distribution center in Phoenix, AZ.</p>
+          <p>This nationwide presence allows us to quickly fulfill orders, reduce shipping costs, and offer top-tier 
+             support no matter where our dealers operate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END DISTRIBUTION CENTERS -->
+
+  <!-- DEALER LOCATOR (Condensed) -->
+  <section class="dealer-locator" id="dealer-locator">
+    <div class="container">
+      <div class="locator-info">
+        <h2>Find a WB Dealer Near You</h2>
+        <p>For end users looking to purchase our products, locate the nearest authorized WB dealer in your area!</p>
+      </div>
+      <div class="locator-box-condensed">
+        <input type="text" placeholder="Enter city, state, or zip code..." />
+        <button onclick="alert('Search triggered (demo).')">Search</button>
+      </div>
+    </div>
+  </section>
+  <!-- END DEALER LOCATOR SECTION -->
+
+  <!-- CATALOG / FLIPBOOK SECTION -->
+  <section class="catalog-section" id="catalogs">
+    <div class="container">
+      <h2>Browse Our Product Catalogs</h2>
+      <p>Explore our flipbook and PDF catalogs. Log in to see pricing and place orders.</p>
+      <div class="catalog-grid">
+        <div class="catalog-item">
+          <img src="https://via.placeholder.com/200x150/cccccc/000?text=Catalog+1" alt="Catalog 1">
+          <p><strong>2024 Master Catalog</strong></p>
+          <p><a href="#">View Flipbook</a></p>
+        </div>
+        <div class="catalog-item">
+          <img src="https://via.placeholder.com/200x150/cccccc/000?text=Catalog+2" alt="Catalog 2">
+          <p><strong>Tractor Accessories</strong></p>
+          <p><a href="#">View Flipbook</a></p>
+        </div>
+        <div class="catalog-item">
+          <img src="https://via.placeholder.com/200x150/cccccc/000?text=Catalog+3" alt="Catalog 3">
+          <p><strong>Parts & Maintenance</strong></p>
+          <p><a href="#">View Flipbook</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END CATALOG SECTION -->
+
+  <!-- BRAND CAROUSEL -->
+  <section class="brand-carousel" id="brands">
+    <div class="container">
+      <h2>Exclusive Brands & Partners</h2>
+      <div class="carousel-container">
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/160x80/eeeeee/000?text=Brand+1" alt="Brand 1">
+          <p>Brand 1</p>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/160x80/eeeeee/000?text=Brand+2" alt="Brand 2">
+          <p>Brand 2</p>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/160x80/eeeeee/000?text=Brand+3" alt="Brand 3">
+          <p>Brand 3</p>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/160x80/eeeeee/000?text=Brand+4" alt="Brand 4">
+          <p>Brand 4</p>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/160x80/eeeeee/000?text=Brand+5" alt="Brand 5">
+          <p>Brand 5</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END BRAND CAROUSEL -->
+
+  <!-- PARTNER WITH WB DISTRIBUTING SECTION -->
+  <section class="partner-section">
+    <div class="container">
+      <h2 class="partner-title">Partner with WB Distributing</h2>
+      <div class="partner-grid">
+        <!-- 1. Best Service and Support -->
+        <div class="partner-box">
+          <i class="fas fa-headset"></i>
+          <h3>We Offer the Best Service and Support</h3>
+          <p>We’re committed to exceeding your expectations by providing unmatched customer service 
+             that keeps your business running smoothly.</p>
+        </div>
+        <!-- 2. Omnichannel Age -->
+        <div class="partner-box">
+          <i class="fas fa-globe"></i>
+          <h3>We Help Dealers Thrive in an Omnichannel Age</h3>
+          <p>Technology has transformed retail, but consumers still value in-store experiences. 
+             We empower you to create a true “brick-and-click” environment—helping drive shoppers 
+             from online discovery to local dealership sales.</p>
+        </div>
+        <!-- 3. Family-Owned, Employee-Focused -->
+        <div class="partner-box">
+          <i class="fas fa-users"></i>
+          <h3>We’re Family-Owned & Employee-Focused</h3>
+          <p>Employees are the backbone of our company. From sales to customer service, 
+             our team is treated with the same care we extend to our dealers. 
+             That’s the difference a family-owned approach makes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END PARTNER SECTION -->
+
+  <!-- OEM PARTNERSHIPS SECTION -->
+  <section class="oem-section">
+    <div class="container">
+      <h2>OEM Partnership Programs</h2>
+      <div class="oem-text">
+        <p><strong>Empower Your Dealers:</strong> Offer a single source for high-quality aftermarket attachments and accessories. We quickly serve the U.S. from our dual distribution centers, ensuring efficient delivery to your dealer network.</p>
+
+        <h3>Why Partner With Us?</h3>
+        <p>We handle logistics, product sourcing, and dealer support—allowing your organization to focus on core OEM operations. Our flexible approach ensures non-competing product lines that expand your dealers’ offerings without compromising your brand.</p>
+
+        <h3>Royalty & Growth</h3>
+        <p>Enjoy a seamless revenue stream through quarterly royalty programs, all while boosting dealer satisfaction and consumer loyalty. Our dedicated marketing, catalogs, and digital channels help drive awareness and sales.</p>
+
+        <button class="cta-btn" onclick="alert('Learn more about OEM Partnerships (demo).')">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- END OEM PARTNERSHIPS SECTION -->
+
+  <!-- BECOME A DEALER SECTION -->
+  <section class="become-dealer" id="becomedealer">
+    <div class="container">
+      <h2>Ready to Join Our Dealer Network?</h2>
+      <p>Sign up today and gain access to dealer-only pricing, online ordering, and personalized support.</p>
+      <button class="dealer-btn" onclick="alert('Apply to become a dealer (demo).')">
+        Become a Dealer
+      </button>
+    </div>
+  </section>
+  <!-- END BECOME A DEALER SECTION -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Wiedmann Bros Distributing Co.</h3>
+        <p>
+          Bringing power equipment dealers the best in service, product, and delivery—
+          a formula that’s proven successful for decades.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="linecard.html" target="_blank">Line Card</a></li>
+          <li><a href="supplier.html" target="_blank">Become a Supplier</a></li>
+          <li><a href="#becomedealer">Become a Dealer</a></li>
+          <li><a href="#dealer-locator">Dealer Locator</a></li>
+          <li><a href="#">Employment</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Location</h3>
+        <ul>
+          <li>601 E. Gowen Road, Boise, ID</li>
+          <li>800 999 3388</li>
+          <li><a href="#">Send us an email</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Connect With Us</h3>
+        <p>Catch up with us on a variety of social networks.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024 WB Distributing. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+  <script>
+    // Simple JS for opening & closing the Dealer Login modal
+    const modalOverlay = document.getElementById('modalOverlay');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const modalClose = document.getElementById('modalClose');
+
+    openModalBtn.addEventListener('click', () => {
+      modalOverlay.style.display = 'flex';
+    });
+
+    modalClose.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
+    });
+
+    // Close modal on overlay click
+    window.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WB Distributing – Become a Supplier</title>
+
+  <!-- OPTIONAL: Font Awesome & Basic CSS Reset / Variables -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-CwToxZpMhZvo6brZyfSD6WhhQ9NDeuHTwryrs9HRBAllRsJS2zW9Uv8rvj0z9YteOBGl/tBUpPdK7SbkxBlpSA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    /* Basic reset & fonts */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    /* Color Variables */
+    :root {
+      --wb-green: #8db946;
+      --wb-black: #333333;
+      --wb-white: #ffffff;
+    }
+
+    /* HEADER (same as homepage) */
+    header {
+      background: var(--wb-black);
+      color: var(--wb-white);
+      padding: 0.5rem 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 140px;
+      margin-right: 2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    nav li {
+      margin-left: 1rem;
+    }
+    nav li a {
+      color: var(--wb-white);
+      padding: 0.5rem 0.75rem;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+    nav li a:hover {
+      background: var(--wb-green);
+      color: var(--wb-black);
+      border-radius: 4px;
+    }
+
+    .nav-right button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background: var(--wb-green);
+      border: none;
+      border-radius: 4px;
+      color: var(--wb-black);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-right button:hover {
+      background: #729633;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: url("supplier-hero.jpg") center/cover no-repeat;
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--wb-white);
+      position: relative;
+    }
+    .page-hero::after {
+      content: "";
+      background: rgba(0,0,0,0.4);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    .page-hero .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .page-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0.5rem auto;
+    }
+
+    /* SUPPLIER CONTENT */
+    .supplier-section {
+      background: #f8f8f8;
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .supplier-section h2 {
+      margin-bottom: 1rem;
+      color: var(--wb-black);
+      text-transform: uppercase;
+    }
+    .supplier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .supplier-box {
+      background: #fff;
+      border-radius: 4px;
+      padding: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .supplier-box h3 {
+      margin-bottom: 0.5rem;
+      color: var(--wb-black);
+    }
+    .supplier-box p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    /* CTA SECTION */
+    .cta-supplier {
+      background: #c3cc00;
+      color: var(--wb-black);
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 2rem;
+    }
+    .cta-supplier .cta-btn {
+      margin-top: 1.5rem;
+      background: #333;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .cta-supplier .cta-btn:hover {
+      background: #555;
+    }
+
+    /* FOOTER (same as homepage) */
+    footer {
+      background: #333;
+      color: #ccc;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+      margin-bottom: 1rem;
+    }
+    .footer-col h3 {
+      margin-bottom: 0.75rem;
+      color: var(--wb-white);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    .footer-col ul li a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .social-icons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .social-icons a {
+      color: #ccc;
+      font-size: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+    .social-icons a:hover {
+      background: #fff;
+      color: #333;
+      border: 1px solid #fff;
+    }
+    .logo {
+  /* previously set to width: 140px; margin-right: 2rem; — now updated */
+  margin-right: 2rem; /* keep your margin if desired */
+  display: inline-block; /* or block, up to your layout */
+  /* no direct width set here, we'll handle inside .logo img */
+}
+
+.logo img {
+  display: block;             /* removes inline spacing, ensures consistency */
+  width: 140px;               /* or your chosen standard width */
+  height: auto;               /* keeps aspect ratio */
+  max-height: 60px;           /* sets an upper bound if you like */
+  object-fit: cover;          /* ensures it doesn’t distort if ratio changes */
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="nav-left">
+          <!-- Placeholder Logo -->
+          <div class="logo">
+            <img src="WBDC-logo.png" alt="WB Company Logo" />
+          </div>
+          <!-- Nav -->
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#catalogs">Catalogs</a></li>
+              <li><a href="index.html#brands">Brands</a></li>
+              <li><a href="linecard.html">Line Card</a></li>
+              <li><a href="supplier.html" style="background: var(--wb-green); color: var(--wb-black); border-radius:4px;">Become a Supplier</a></li>
+              <li><a href="#">Dealers</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="nav-right">
+          <button onclick="alert('Dealer login (demo).')">
+            <i class="fas fa-user-lock"></i> Dealer Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END HEADER -->
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="hero-content container">
+      <h1>Become a Supplier</h1>
+      <p>Partner with WB Distributing to expand your reach and accelerate growth!</p>
+    </div>
+  </section>
+
+  <!-- SUPPLIER CONTENT -->
+  <section class="supplier-section">
+    <div class="container">
+      <h2>Why Partner With WB?</h2>
+      <p>We are a leading distributor in the agricultural, power equipment, and automotive sectors. 
+         We look for innovative, high-quality products and partners who share our vision for success.</p>
+      <div class="supplier-grid">
+        <!-- Example Box 1 -->
+        <div class="supplier-box">
+          <h3>Commitment to Ethics</h3>
+          <p>We do not leverage short-term gains over our partners. We look for like-minded suppliers 
+             with transparent operations and fair business practices.</p>
+        </div>
+        <!-- Example Box 2 -->
+        <div class="supplier-box">
+          <h3>Quality & Innovation</h3>
+          <p>We partner with market leaders who provide unique products and top-tier customer support.  
+             Standing out with innovative product lines is a major plus!</p>
+        </div>
+        <!-- Example Box 3 -->
+        <div class="supplier-box">
+          <h3>Robust Advertising</h3>
+          <p>Our in-house marketing team invests resources in creating brand visibility. 
+             From catalogs to digital channels, we support your products end-to-end.</p>
+        </div>
+        <!-- etc. Add more as needed. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT US FOR SUPPLIERS -->
+  <section class="cta-supplier">
+    <div class="container">
+      <h2>Interested in Becoming a Supplier?</h2>
+      <p>Reach out to our Supplier Relations team to learn more about collaborating on distribution, marketing, and growth.</p>
+      <button class="cta-btn" onclick="window.location='mailto:vendor@wbdealer.com';">
+        Email Our Team
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Wiedmann Bros Distributing Co.</h3>
+        <p>Bringing power equipment dealers the best in service, product, and delivery.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="linecard.html">Line Card</a></li>
+          <li><a href="supplier.html">Become a Supplier</a></li>
+          <li><a href="index.html#becomedealer">Become a Dealer</a></li>
+          <li><a href="index.html#dealer-locator">Dealer Locator</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Location</h3>
+        <ul>
+          <li>601 E. Gowen Road, Boise, ID</li>
+          <li>800 999 3388</li>
+          <li><a href="#">Send us an email</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Connect With Us</h3>
+        <p>Catch up with us on a variety of social networks.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024 WB Distributing. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+</body>
+</html>
